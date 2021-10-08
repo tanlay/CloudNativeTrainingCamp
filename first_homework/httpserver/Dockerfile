@@ -15,7 +15,8 @@ RUN go build simplehttpserver.go
 
 #指定运行阶段的基础镜像
 FROM alpine
-WORKDIR /root
+RUN mkdir /data
+WORKDIR /data
 #将上一阶段的文件复制进来
 COPY --from=build-env /data/simplehttpserver . 
 #暴露端口
