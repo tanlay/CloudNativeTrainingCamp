@@ -57,3 +57,6 @@ Date: Wed, 29 Sep 2021 09:21:15 GMT
 Content-Length: 3
 Content-Type: text/plain; charset=utf-8
 ```
+
+## 使用Dockerfile打包程序
+docker build -t simplehttpserver:v1 .
