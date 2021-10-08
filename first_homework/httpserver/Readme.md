@@ -59,4 +59,21 @@ Content-Type: text/plain; charset=utf-8
 ```
 
 ## 使用Dockerfile打包程序
-docker build -t simplehttpserver:v1 .
+
+### 打包
+```shell
+> docker build -t simplehttpserver:v1 .
+```
+### 启动docker镜像
+```shell
+> docker run -itd simplehttpserver:v1
+```
+
+### 测试接口
+进入docker查看容器IP地址为172.17.0.2
+```shell
+> curl 172.17.0.2:8099/header -I
+> curl 172.17.0.2:8099/version
+> curl 172.17.0.2:8099/log
+> curl 172.17.0.2:8099/healthz
+```
