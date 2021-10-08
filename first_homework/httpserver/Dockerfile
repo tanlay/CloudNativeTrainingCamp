@@ -1,6 +1,6 @@
 #打包阶段使用golang:alpine作为基础镜像
 FROM golang:alpine as build-env
-#制定打包者信息
+#指定打包者信息
 MAINTAINER tanlay
 
 #创建工作目录
@@ -13,7 +13,7 @@ COPY simplehttpserver.go .
 #执行go build
 RUN go build simplehttpserver.go
 
-#制定运行阶段的基础镜像
+#指定运行阶段的基础镜像
 FROM alpine
 WORKDIR /root
 #将上一阶段的文件复制进来
