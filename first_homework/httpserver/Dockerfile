@@ -22,4 +22,5 @@ COPY --from=build-env /data/simplehttpserver .
 #暴露端口
 EXPOSE 8099
 #执行程序
-CMD ["./simplehttpserver"]
+#CMD ["./simplehttpserver"]
+ENTRYPOINT ["./simplehttpserver"]
