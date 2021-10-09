@@ -16,22 +16,17 @@
 ### 访问/header
 
 ```shell
-> curl.exe  127.0.0.1:8099/header -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36' -I
-HTTP/1.1 403 Forbidden
-Server: Nginx-1.12.1
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36
-Date: Wed, 29 Sep 2021 09:16:35 GMT
-Content-Length: 10
-Content-Type: text/plain; charset=utf-8
+> curl 127.0.0.1:8099/header -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36' -I
+> curl 127.0.0.1:8099/header
 ```
 
 ### 访问/version
 
 ```shell
-> curl.exe 127.0.0.1:8099/version
+> curl 127.0.0.1:8099/version
 GoVersion: go1.17.1
 
-> curl.exe 127.0.0.1:8099/version -I
+> curl 127.0.0.1:8099/version -I
 HTTP/1.1 200 OK
 Goversion: go1.17.1
 Date: Wed, 29 Sep 2021 09:19:50 GMT
@@ -42,16 +37,16 @@ Content-Type: text/plain; charset=utf-8
 ### 访问/log
 
 ```shell
-> curl.exe 127.0.0.1:8099/log
+> curl 127.0.0.1:8099/log
 ```
 
 ### 访问/healthz
 
 ```shell
-> curl.exe 127.0.0.1:8099/healthz
+> curl 127.0.0.1:8099/healthz
 200
 
-> curl.exe 127.0.0.1:8099/healthz -I
+> curl 127.0.0.1:8099/healthz -I
 HTTP/1.1 200 OK
 Date: Wed, 29 Sep 2021 09:21:15 GMT
 Content-Length: 3

@@ -29,16 +29,36 @@ Content-Length: 10
 Content-Type: text/plain; charset=utf-8
 */
 func headerHandler(w http.ResponseWriter, r *http.Request) {
-	//接收客户端UA
-	ua := r.UserAgent()
-	//自定义header
-	w.Header().Set("Server", "Nginx-1.12.1")
-	//把rquest的UA返回到response的header中
-	w.Header().Set("User-Agent", ua)
-	//自定义网页返回状态码
-	// w.WriteHeader(403)
-	//回显客户端消息
-	w.Write([]byte("add_header"))
+	////接收客户端UA
+	//ua := r.UserAgent()
+	////自定义header
+	//w.Header().Set("Server", "Nginx-1.12.1")
+	////把rquest的UA返回到response的header中
+	//w.Header().Set("User-Agent", ua)
+	////自定义网页返回状态码
+	//// w.WriteHeader(403)
+	////回显客户端消息
+	//w.Write([]byte("add_header"))
+
+	//打印请求方法，请求URL,请求协议
+	fmt.Fprintf(w, "%s %s %s\n", r.Method, r.URL, r.Proto)
+	//打印请求头
+	fmt.Fprintln(w, "打印请求头：")
+	for k, v := range r.Header {
+		fmt.Fprintf(w, "Header[%q] = %q\n", k, v)
+	}
+	//打印请求的主机地址
+	fmt.Fprintf(w, "Host = %q\n", r.Host)
+	//打印与远端地址
+	fmt.Fprintf(w, "RemoteAddr = %q\n", r.RemoteAddr)
+	if err := r.ParseForm(); err != nil {
+		log.Print(err)
+	}
+	//打印请求体
+	fmt.Fprintln(w, "打印请求体：")
+	for k, v := range r.Form {
+		fmt.Fprintf(w, "From[%q] = %q\n", k, v)
+	}
 }
 
 func versionHandler(w http.ResponseWriter, r *http.Request) {
